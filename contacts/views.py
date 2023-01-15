@@ -33,10 +33,12 @@ def update_industry(request, pk):
         return redirect('contacts:industry')
     else:
         form = FormIndustry(instance=industry)
-    industries = Industries.objects.all()
+    page_industry = Industries.objects.all()
+    page_name = request.path
     context = {
         'form': form,
-        'industries': industries
+        'page_industry': page_industry,
+        'page_name': page_name,
     }
     return render(request,'industries.html', context)
 

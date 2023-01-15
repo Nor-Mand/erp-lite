@@ -6,20 +6,25 @@
             <form method="POST" action="">
                 {% csrf_token %}
                 {{ form }}
-                {% if request.get_full_path == '/contacts/industry/' %}
-                    <input type="submit" value="create" class="ms-2 btn btn-primary btn-sm">
-                {% else %}
+{#                {% if request.method == 'POST' %}#}
+                {% if page_name %}
                     <input type="submit" value="update" class="ms-2 btn btn-warning btn-sm">
                     <a href="{% url 'contacts:industry' %}" class="btn btn-secondary btn-sm">cancel</a>
+                {% else %}
+                    <input type="submit" value="create" class="ms-2 btn btn-primary btn-sm">
                 {% endif %}
             </form>
             <div class="px-4">
+                {% for industries in industries.number %}
+                    {{ industries }}
+                {% endfor %}
+
                 {{ page_industry.number }}-{{ page_industry.paginator.num_pages }}
                 {% if page_industry.has_previous %}
-                    <a href="?page={{ page_industry.previous_page_number }}"><i class="bi bi-chevron-left fw-bold"></i></a>
+                    <a href="?page={{ page_industry.previous_page_number }}"><i class="bi bi-caret-left-square-fill"></i></a>
                 {% endif %}
                 {% if page_industry.has_next %}
-                    <a href="?page={{ page_industry.next_page_number }}"><i class="bi bi-chevron-right"></i></a>
+                    <a href="?page={{ page_industry.next_page_number }}"><i class="bi bi-caret-right-square-fill"></i></a>
                 {% endif %}
             </div>
         </div>
