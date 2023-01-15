@@ -41,8 +41,23 @@ class Countries(models.Model):
     name = models.CharField(max_length=220)
     code = models.CharField(max_length=5)
 
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        self.name = self.name.title()
+        self.code = self.code.upper()
+        return super(Countries, self).save(*args, **kwargs)
+
 
 # Cities
 class Cities(models.Model):
     name = models.CharField(max_length=220)
     country_id = models.ForeignKey(Countries, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        self.name = self.name.title()
+        return super(Cities, self).save(*args, **kwargs)

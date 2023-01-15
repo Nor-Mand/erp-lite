@@ -1,0 +1,66 @@
+{% extends 'home/home.html' %}
+
+{% block content %}
+    <div class="row py-4">
+        <div class="d-flex justify-content-between">
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{ form }}
+{#                {% if request.method == 'POST' %}#}
+                {% if page_name %}
+                    <input type="submit" value="update" class="ms-2 btn btn-warning btn-sm">
+                    <a href="{% url 'contacts:country' %}" class="btn btn-secondary btn-sm">cancel</a>
+                {% else %}
+                    <input type="submit" value="create" class="ms-2 btn btn-primary btn-sm">
+                {% endif %}
+            </form>
+            <div class="px-4">
+                {% for country in countries.number %}
+                    {{ country }}
+                {% endfor %}
+
+                {{ page_country.number }}-{{ page_country.paginator.num_pages }}
+                {% if page_country.has_previous %}
+                    <a href="?page={{ page_country.previous_page_number }}"><i class="bi bi-caret-left-square-fill"></i></a>
+                {% endif %}
+                {% if page_country.has_next %}
+                    <a href="?page={{ page_country.next_page_number }}"><i class="bi bi-caret-right-square-fill"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if page_country %}
+                {% for country in page_country %}
+                    <tr>
+                        <td>{{ country.id }}</td>
+                        <td>{{ country.name }}</td>
+                        <td>{{ country.code }}</td>
+                        <td><a href="{% url 'contacts:update-country' country.pk %}" class="btn btn-warning btn-sm"><i
+                                class="bi bi-pencil-square"></i></a>
+                            <a href="{% url 'contacts:delete-country' country.pk %}" class="btn btn-danger btn-sm"><i
+                                    class="bi bi-trash3"></i></a></td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td>
+                        No found data.
+                    </td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

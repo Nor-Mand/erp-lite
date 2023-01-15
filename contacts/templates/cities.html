@@ -1,0 +1,66 @@
+{% extends 'home/home.html' %}
+
+{% block content %}
+    <div class="row py-4">
+        <div class="d-flex justify-content-between">
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{ form }}
+{#                {% if request.method == 'POST' %}#}
+                {% if page_name %}
+                    <input type="submit" value="update" class="ms-2 btn btn-warning btn-sm">
+                    <a href="{% url 'contacts:cities' %}" class="btn btn-secondary btn-sm">cancel</a>
+                {% else %}
+                    <input type="submit" value="create" class="ms-2 btn btn-primary btn-sm">
+                {% endif %}
+            </form>
+            <div class="px-4">
+                {% for city in cities.number %}
+                    {{ city }}
+                {% endfor %}
+
+                {{ page_city.number }}-{{ page_city.paginator.num_pages }}
+                {% if page_city.has_previous %}
+                    <a href="?page={{ page_city.previous_page_number }}"><i class="bi bi-caret-left-square-fill"></i></a>
+                {% endif %}
+                {% if page_city.has_next %}
+                    <a href="?page={{ page_city.next_page_number }}"><i class="bi bi-caret-right-square-fill"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if page_city %}
+                {% for city in page_city %}
+                    <tr>
+                        <td>{{ city.id }}</td>
+                        <td>{{ city.name }}</td>
+                        <td>{{ city.country_id.name}}</td>
+                        <td><a href="{% url 'contacts:update-cities' city.pk %}" class="btn btn-warning btn-sm"><i
+                                class="bi bi-pencil-square"></i></a>
+                            <a href="{% url 'contacts:delete-cities' city.pk %}" class="btn btn-danger btn-sm"><i
+                                    class="bi bi-trash3"></i></a></td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td>
+                        No found data.
+                    </td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}
