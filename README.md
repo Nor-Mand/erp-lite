@@ -7,3 +7,6 @@ Enterprise Resource Planning using Django Framework
 
 ## Status:
 `Developing`
+
+### Login
+![alt text](https://github.com/Nor-Mand/erp-lite/blob/main/images/picture_1.png)
