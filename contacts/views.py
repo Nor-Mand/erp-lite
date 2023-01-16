@@ -2,9 +2,11 @@ from django.shortcuts import render, redirect
 from .models import Industries, Countries, Cities
 from .forms import FormIndustry, FormCountry, FormCities
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 
 # Countries
+@login_required(login_url='login')
 def home_countries(request):
     form = FormCountry()
     if request.method == 'POST':
@@ -23,7 +25,7 @@ def home_countries(request):
     }
     return render(request, 'countries.html', context)
 
-
+@login_required(login_url='login')
 def update_country(request, pk):
     country = Countries.objects.get(id=pk)
     if request.method == 'POST':
@@ -42,7 +44,7 @@ def update_country(request, pk):
     }
     return render(request, 'countries.html', context)
 
-
+@login_required(login_url='login')
 def delete_country(request, pk):
     country = Countries.objects.get(id=pk)
     country.delete()
@@ -50,6 +52,7 @@ def delete_country(request, pk):
 
 
 # Industries
+@login_required(login_url='login')
 def create_industry(request):
     form = FormIndustry()
     if request.method == 'POST':
@@ -68,7 +71,7 @@ def create_industry(request):
     }
     return render(request, 'industries.html', context)
 
-
+@login_required(login_url='login')
 def update_industry(request, pk):
     industry = Industries.objects.get(id=pk)
     if request.method == 'POST':
@@ -87,7 +90,7 @@ def update_industry(request, pk):
     }
     return render(request,'industries.html', context)
 
-
+@login_required(login_url='login')
 def delete_industry(request, pk):
     industry = Industries.objects.get(id=pk)
     industry.delete()
@@ -95,6 +98,7 @@ def delete_industry(request, pk):
 
 
 # Countries
+@login_required(login_url='login')
 def home_cities(request):
     form = FormCities()
     if request.method == 'POST':
@@ -113,7 +117,7 @@ def home_cities(request):
     }
     return render(request, 'cities.html', context)
 
-
+@login_required(login_url='login')
 def update_cities(request, pk):
     city = Cities.objects.get(id=pk)
     if request.method == 'POST':
@@ -132,7 +136,7 @@ def update_cities(request, pk):
     }
     return render(request, 'cities.html', context)
 
-
+@login_required(login_url='login')
 def delete_cities(request, pk):
     city = Cities.objects.get(id=pk)
     city.delete()
