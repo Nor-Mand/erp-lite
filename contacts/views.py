@@ -141,3 +141,18 @@ def delete_cities(request, pk):
     city = Cities.objects.get(id=pk)
     city.delete()
     return redirect('contacts:cities')
+
+
+@login_required(login_url='login')
+def home_employees(request):
+    return render(request, 'employees.html')
+
+
+@login_required(login_url='login')
+def home_customers(request):
+    return render(request, 'customers.html')
+
+
+@login_required(login_url='login')
+def home_suppliers(request):
+    return render(request, 'suppliers.html')

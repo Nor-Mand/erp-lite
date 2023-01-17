@@ -13,4 +13,7 @@ urlpatterns = [
     path('cities/', home_cities, name='cities'),
     path('cities/update/<int:pk>', update_cities, name='update-cities'),
     path('cities/delete/<int:pk>', delete_cities, name='delete-cities'),
+    path('employees/', home_employees, name='employees'),
+    path('customers/', home_customers, name='customers'),
+    path('suppliers/', home_suppliers, name='suppliers'),
 ]

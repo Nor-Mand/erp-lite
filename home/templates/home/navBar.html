@@ -15,9 +15,9 @@
                         Contacts
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Customers</a></li>
-                        <li><a class="dropdown-item" href="#">Suppliers</a></li>
-                        <li><a class="dropdown-item" href="#">Employees</a></li>
+                        <li><a class="dropdown-item" href="{% url 'contacts:customers' %}">Customers</a></li>
+                        <li><a class="dropdown-item" href="{% url 'contacts:suppliers' %}">Suppliers</a></li>
+                        <li><a class="dropdown-item" href="{% url 'contacts:employees' %}">Employees</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

@@ -1,28 +1,40 @@
 from django.db import models
 
 
-# Persons
-class Persons(models.Model):
-    first_name = models.CharField(max_length=220)
-    last_name = models.CharField(max_length=220)
+# Global Information(Abstraction field)
+class GlobalInformation(models.Model):
+    GENDER = [
+        ('F', 'Female'),
+        ('M', 'Male'),
+    ]
+    first_name = models.CharField(max_length=220, default='')
+    last_name = models.CharField(max_length=220, default='')
+    email = models.EmailField(max_length=220, default='')
+    phone_number = models.CharField(max_length=20, blank=True, default='')
+    mobil_number = models.CharField(max_length=20, blank=True, default='')
+    address = models.CharField(max_length=250, blank=True, default='')
+    postcode = models.CharField(max_length=50, blank=True, default='')
+    company_name = models.CharField(max_length=220, default='')
+    job_title = models.CharField(max_length=20, blank=True, default='')
+    gender = models.CharField(max_length=20, choices=GENDER, default='')
 
     class Meta:
         abstract = True
 
 
 # Customers
-class Customers(models.Model):
-    pass
+class Customers(GlobalInformation):
+    tax_id = models.CharField(max_length=20, blank=True, default='')
 
 
 # Suppliers
-class Suppliers(models.Model):
-    pass
+class Suppliers(GlobalInformation):
+    website = models.URLField(max_length=220, blank=True, default='')
 
 
 # Employees
-class Employees(models.Model):
-    pass
+class Employees(GlobalInformation):
+    birthday = models.DateField(blank=True, null=True, default='')
 
 
 # Industries
