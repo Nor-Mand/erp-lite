@@ -4,6 +4,7 @@ from django.db import models
 # Global Information(Abstraction field)
 class GlobalInformation(models.Model):
     GENDER = [
+        ('', '----'),
         ('F', 'Female'),
         ('M', 'Male'),
     ]

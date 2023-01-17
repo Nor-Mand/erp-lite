@@ -1,1 +1,61 @@
 {% extends 'home/home.html' %}
+
+
+{% block content %}
+    <div class="row py-4">
+        <div class="d-flex justify-content-between">
+            <a href="{% url 'contacts:create-customers' %}" class="ms-2 btn btn-primary btn-sm">Add Customer</a>
+            <div class="px-4">
+                {{ page_customers.number }}-{{ page_customers.paginator.num_pages }}
+                {% if page_customers.has_previous %}
+                    <a href="?page={{ page_customers.previous_page_number }}"><i
+                            class="bi bi-caret-left-square-fill"></i></a>
+                {% endif %}
+                {% if page_customers.has_next %}
+                    <a href="?page={{ page_customers.next_page_number }}"><i class="bi bi-caret-right-square-fill"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Job Title</th>
+                <th>Company Name</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if customers %}
+                {% for client in customers %}
+                    <tr>
+                        <td>{{ client.id }}</td>
+                        <td>{{ client.first_name }} {{ client.last_name }}</td>
+                        <td>{{ client.mobil_number }}</td>
+                        <td>{{ client.email }}</td>
+                        <td>{{ client.job_title }}</td>
+                        <td>{{ client.company_name }}</td>
+                        <td><a href="{% url 'contacts:update-customers' client.pk %}" class="btn btn-warning btn-sm"><i
+                                class="bi bi-pencil-square"></i></a>
+                            <a href="{% url 'contacts:delete-customers' client.pk %}" class="btn btn-danger btn-sm"><i
+                                    class="bi bi-trash3"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td>
+                        No found data.
+                    </td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Industries, Countries, Cities
-from .forms import FormIndustry, FormCountry, FormCities
+from .models import Industries, Countries, Cities, Customers
+from .forms import FormIndustry, FormCountry, FormCities, FormCustomers
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 
@@ -150,8 +150,52 @@ def home_employees(request):
 
 @login_required(login_url='login')
 def home_customers(request):
-    return render(request, 'customers.html')
+    customers = Customers.objects.all()
+    paginator = Paginator(Customers.objects.all(), 6)
+    page_number = request.GET.get('page')
+    page_customers = paginator.get_page(page_number)
+    context = {
+        'customers': customers,
+        'page_customers': page_customers,
+    }
+    return render(request, 'customers.html', context)
 
+
+@login_required(login_url='login')
+def create_customers(request):
+    print(request.POST)
+    form = FormCustomers()
+    if request.method == 'POST':
+        form = FormCustomers(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('contacts:customers')
+    context = {
+        'form': form,
+    }
+    return render(request, 'customerForm.html', context)
+
+
+@login_required(login_url='login')
+def update_customers(request, pk):
+    customers = Customers.objects.get(id=pk)
+    if request.method == 'POST':
+        form = FormCustomers(request.POST, instance=customers)
+        if form.is_valid():
+            form.save()
+        return redirect('contacts:customers')
+    else:
+        form = FormCustomers(instance=customers)
+    context = {
+        'form': form
+    }
+    return render(request, 'customerForm.html', context)
+
+@login_required(login_url='login')
+def delete_customers(request, pk):
+    customers = Customers.objects.get(id=pk)
+    customers.delete()
+    return redirect('contacts:customers')
 
 @login_required(login_url='login')
 def home_suppliers(request):

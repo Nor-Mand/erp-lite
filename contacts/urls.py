@@ -15,5 +15,8 @@ urlpatterns = [
     path('cities/delete/<int:pk>', delete_cities, name='delete-cities'),
     path('employees/', home_employees, name='employees'),
     path('customers/', home_customers, name='customers'),
+    path('customers/new/', create_customers, name='create-customers'),
+    path('customers/update/<int:pk>', update_customers, name='update-customers'),
+    path('customers/delete/<int:pk>', delete_customers, name='delete-customers'),
     path('suppliers/', home_suppliers, name='suppliers'),
 ]

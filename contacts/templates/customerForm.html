@@ -1,0 +1,75 @@
+{% extends 'home/home.html' %}
+
+{% block content %}
+    <div class="row pt-4">
+        <div class="col-8 mx-auto shadow-sm p-4 mb-5 bg-body">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="border-bottom mb-4">
+                    <h5>Basic Information</h5>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-6">
+                        <label for="firstName" class="form-label">First Name</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="LastName" class="form-label">Last Name</label>
+                        {{ form.last_name }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-6">
+                        <label for="jobTitle" class="form-label">Job Title</label>
+                        {{ form.job_title }}
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="gender" class="form-label">Gender</label>
+                        {{ form.gender }}
+                    </div>
+                </div>
+                <div class="border-bottom mb-4 mt-4">
+                    <h6>Contact Information</h6>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-6">
+                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                        {{ form.phone_number }}
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="mobilNumber" class="form-label">Mobil Number</label>
+                        {{ form.mobil_number }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-6">
+                        <label for="email" class="form-label">Email</label>
+                        {{ form.email }}
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="companyName" class="form-label">Company Name</label>
+                        {{ form.company_name }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-6">
+                        <label for="adrress" class="form-label">Address</label>
+                        {{ form.address }}
+                    </div>
+                    <div class="mb-3 col-2">
+                        <label for="postCode" class="form-label">Post Code</label>
+                        {{ form.postcode }}
+                    </div>
+                    <div class="mb-3 col-4">
+                        <label for="taxID" class="form-label">Tax ID</label>
+                        {{ form.tax_id }}
+                    </div>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="" class="btn btn-secondary btn-sm">Cancel</a>
+                    <input type="submit" value="save" class="btn btn-primary btn-sm px-3">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
