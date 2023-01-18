@@ -1,11 +1,14 @@
 {% extends 'home/home.html' %}
 
+{% block Title %}
+    Add Customers
+{% endblock %}
 {% block content %}
-    <div class="row pt-4">
+    <div class="row pt-2">
         <div class="col-8 mx-auto shadow-sm p-4 mb-5 bg-body">
             <form method="POST">
                 {% csrf_token %}
-                <div class="border-bottom mb-4">
+                <div class="border-bottom mb-2">
                     <h5>Basic Information</h5>
                 </div>
                 <div class="row">
@@ -28,7 +31,7 @@
                         {{ form.gender }}
                     </div>
                 </div>
-                <div class="border-bottom mb-4 mt-4">
+                <div class="border-bottom mb-2 mt-4">
                     <h6>Contact Information</h6>
                 </div>
                 <div class="row">
