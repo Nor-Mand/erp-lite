@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "login",
     "home",
     "contacts",
+    "accounting",
 ]
 
 MIDDLEWARE = [

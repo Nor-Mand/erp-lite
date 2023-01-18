@@ -9,6 +9,33 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Accounting
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <p class="ps-2 m-0 fw-bold text-muted">Transactions</p>
+                        </li>
+                        <li><a class="dropdown-item" href="">Journal Entries</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                            <p class="ps-2 m-0 fw-bold text-muted">Reporting</p>
+                        </li>
+                        <li><a class="dropdown-item" href="">Balance Sheet</a></li>
+                        <li><a class="dropdown-item" href="">Profit and Loss</a></li>
+                        <li><a class="dropdown-item" href="">Trial Balance</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                            <p class="ps-2 m-0 fw-bold text-muted">Configuration</p>
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'accounting:chart-accounts' %}">Chart of Accounts</a></li>
+                        <li><a class="dropdown-item" href="">Taxes</a></li>
+                        <li><a class="dropdown-item" href="">Currencies</a></li>
+                        <li><a class="dropdown-item" href="">Bank Acccounts</a></li>
+                    </ul>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
