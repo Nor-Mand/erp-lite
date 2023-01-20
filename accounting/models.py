@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Category chart of accounts
 class CategoryAccounts(models.Model):
     name = models.CharField(max_length=220)
@@ -18,9 +17,20 @@ class ChartOfAccounts(models.Model):
     def __str__(self):
         return f'{self.code} {self.name}'
 
+
 # Taxes
 class Taxes(models.Model):
     code = models.CharField(max_length=10)
     tax_name = models.CharField(max_length=220)
     account_id = models.ForeignKey(ChartOfAccounts, on_delete=models.CASCADE)
     percentage = models.IntegerField()
+
+
+# Currency
+class Currency(models.Model):
+    name = models.CharField(max_length=220)
+    symbol = models.CharField(max_length=5)
+    abbrev = models.CharField(max_length=10)
+    date = models.DateField()
+    rate = models.DecimalField(max_digits=6, decimal_places=2)
+    status = models.BooleanField()

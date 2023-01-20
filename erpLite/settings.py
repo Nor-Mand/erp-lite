@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "home",
     "contacts",
     "accounting",
+
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "erpLite.urls"
+
 
 TEMPLATES = [
     {

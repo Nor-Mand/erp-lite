@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import ChartOfAccounts, Taxes
-from .forms import FormChartOfAccounts, FormTaxes
+from .models import ChartOfAccounts, Taxes, Currency
+from .forms import FormChartOfAccounts, FormTaxes, FormCurrency
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 
@@ -95,3 +95,37 @@ def delete_taxes(request, pk):
     taxes = Taxes.objects.get(id=pk)
     taxes.delete()
     return redirect(request, 'taxes.html')
+
+
+# Currency
+@login_required(login_url='page')
+def home_currency(request):
+    form = FormCurrency()
+    if request.method == 'POST':
+        form = FormCurrency(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('accounting:currency')
+    currencies = Currency.objects.all()
+    context = {
+        'form': form,
+        'currencies': currencies,
+    }
+    return render(request, 'currency.html', context)
+
+
+# Update Currency
+@login_required(login_url='login')
+def update_currency(request, pk):
+    currency = Currency.objects.get(id=pk)
+    if request.method == 'POST':
+        form = FormCurrency(request.POST, instance=currency)
+        if form.is_valid():
+            form.save()
+        return redirect('accounting:currency')
+    else:
+        form = FormCurrency(instance=currency)
+    context = {
+        'form': form,
+    }
+    return render(request, 'currency.html', context)

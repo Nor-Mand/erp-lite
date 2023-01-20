@@ -1,0 +1,140 @@
+{% extends 'home/home.html' %}
+{% block Title %}
+    Currencies
+{% endblock %}
+{% block content %}
+    <div class="row py-4">
+        <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#ModalCurrency">
+                Add Currency
+            </button>
+            <div class="px-4">
+                {{ page_accounts.number }}-{{ page_accounts.paginator.num_pages }}
+                {% if page_accounts.has_previous %}
+                    <a href="?page={{ page_accounts.previous_page_number }}"><i
+                            class="bi bi-caret-left-square-fill"></i></a>
+                {% endif %}
+                {% if page_accounts.has_next %}
+                    <a href="?page={{ page_accounts.next_page_number }}"><i
+                            class="bi bi-caret-right-square-fill"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="row bg-white">
+        <table class="table">
+            <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Currency</th>
+                <th>Symbol</th>
+                <th>Date</th>
+                <th>Rate</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if currencies %}
+                {% for currency in currencies %}
+                    <tr>
+                        <td>{{ currency.id }}</td>
+                        <td>{{ currency.name }}</td>
+                        <td>{{ currency.abbrev }}</td>
+                        <td>{{ currency.symbol }}</td>
+                        <td>{{ currency.date|date:"d/m/Y" }}</td>
+                        <td>{{ currency.rate }}</td>
+                        <td>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                                       {% if currency.status %}checked{% else %}{% endif %}>
+                            </div>
+                        <td>
+                            <button onclick="update_currency('{% url 'accounting:update-currency' currency.pk %}')"
+                               class="btn btn-warning btn-sm"
+                            >
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                            <a href="" class="btn btn-danger btn-sm"><i
+                                    class="bi bi-trash3"></i></a></td>
+                    </tr>
+
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td>
+                        No found data.
+                    </td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+        <!-- Modal -->
+        <div class="modal fade" id="ModalCurrency" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create Currency</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="POST">
+                        <div class="modal-body">
+                            {% csrf_token %}
+                            <div class="container-fluid">
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <label for="" class="form-label">Name</label>
+                                        {{ form.name }}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-4">
+                                        <label for="" class="form-label">Currency</label>
+                                        {{ form.abbrev }}
+                                    </div>
+                                    <div class="col-2">
+                                        <label for="" class="form-label">Symbol</label>
+                                        {{ form.symbol }}
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="" class="form-label">Date</label>
+                                        {{ form.date }}
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-4">
+                                        <label for="" class="form-label">Rate</label>
+                                        {{ form.rate }}
+                                    </div>
+                                    <div class="align-self-end col-4 ms-auto">
+                                        <div class="form-check form-switch ">
+                                            {{ form.status }}
+                                            <label class="form-check-label" for="flexSwitchCheckChecked">Active</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary" value="Save">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block CustomScripts %}
+    <script>
+        function update_currency(url){
+            var myModal = document.getElementById('ModalCurrency')
+            if(url){
+                console.log(url)
+                console.log(myModal)
+            }
+
+        }
+    </script>
+{% endblock %}

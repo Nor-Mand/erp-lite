@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import chart_of_accounts, update_chart_of_accounts, home_taxes, update_taxes, delete_taxes
+from .views import *
 
 app_name = 'accounting'
 
@@ -9,4 +9,6 @@ urlpatterns = [
     path('taxes/', home_taxes, name='taxes'),
     path('taxes/<int:pk>', update_taxes, name='updated-taxes'),
     path('taxes/delete/<int:pk>', delete_taxes, name='delete-taxes'),
+    path('currency/', home_currency, name='currency'),
+    path('currency/<int:pk>', update_currency, name='update-currency'),
 ]
