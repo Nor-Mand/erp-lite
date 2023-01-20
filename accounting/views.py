@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import ChartOfAccounts
-from .forms import FormChartOfAccounts
+from .models import ChartOfAccounts, Taxes
+from .forms import FormChartOfAccounts, FormTaxes
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 
@@ -45,3 +45,53 @@ def update_chart_of_accounts(request, pk):
         'chartAccounts': chartAccounts,
     }
     return render(request, 'chartOfAccounts.html', context)
+
+
+# Taxes
+@login_required(login_url='login')
+def home_taxes(request):
+    form = FormTaxes()
+    if request.method == 'POST':
+        form = FormTaxes(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('accounting:taxes')
+    taxes = Taxes.objects.all()
+    paginator = Paginator(Taxes.objects.all(), 6)
+    page_number = request.GET.get('page')
+    page_taxes = paginator.get_page(page_number)
+    context = {
+        'form': form,
+        'taxes': form,
+        'page_taxes': page_taxes,
+    }
+    return render(request,'taxes.html', context)
+
+
+# Taxes Update
+@login_required(login_url='page')
+def update_taxes(request, pk):
+    taxes = Taxes.objects.get(id=pk)
+    if request.method == 'POST':
+        form = FormTaxes(request.POST, instance=taxes)
+        if form.is_valid():
+            form.save()
+        return redirect('accounting:taxes')
+    else:
+        form = FormTaxes(instance=taxes)
+    page_taxes = Taxes.objects.all()
+    page_name = request.path
+    context = {
+        'form': form,
+        'page_taxes': page_taxes,
+        'page_name': page_name
+    }
+    return render(request, 'taxes.html', context)
+
+
+# Tax Delete
+@login_required(login_url='page')
+def delete_taxes(request, pk):
+    taxes = Taxes.objects.get(id=pk)
+    taxes.delete()
+    return redirect(request, 'taxes.html')
