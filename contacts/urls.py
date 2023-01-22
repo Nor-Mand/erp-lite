@@ -18,5 +18,6 @@ urlpatterns = [
     path('customers/new/', create_customers, name='create-customers'),
     path('customers/update/<int:pk>', update_customers, name='update-customers'),
     path('customers/delete/<int:pk>', delete_customers, name='delete-customers'),
+    path('customers/export_csv/', export_customers, name='export-customers'),
     path('suppliers/', home_suppliers, name='suppliers'),
 ]

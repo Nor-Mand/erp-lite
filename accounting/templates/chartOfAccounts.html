@@ -8,7 +8,7 @@
             <form method="POST" action="">
                 {% csrf_token %}
                 {{ form }}
-{#                {% if request.method == 'POST' %}#}
+                {#                {% if request.method == 'POST' %}#}
                 {% if page_name %}
                     <input type="submit" value="update" class="ms-2 btn btn-warning btn-sm">
                     <a href="{% url 'accounting:chart-accounts' %}" class="btn btn-secondary btn-sm">cancel</a>
@@ -16,13 +16,19 @@
                     <input type="submit" value="create" class="ms-2 btn btn-primary btn-sm">
                 {% endif %}
             </form>
+            <div>
+                <a class="btn btn-primary btn-sm " href="{% url 'accounting:export-accounts' %}"><i
+                        class="bi bi-save"></i><span class="ps-2">Export CSV</span></a>
+            </div>
             <div class="px-4">
                 {{ page_accounts.number }}-{{ page_accounts.paginator.num_pages }}
                 {% if page_accounts.has_previous %}
-                    <a href="?page={{ page_accounts.previous_page_number }}"><i class="bi bi-caret-left-square-fill"></i></a>
+                    <a href="?page={{ page_accounts.previous_page_number }}"><i
+                            class="bi bi-caret-left-square-fill"></i></a>
                 {% endif %}
                 {% if page_accounts.has_next %}
-                    <a href="?page={{ page_accounts.next_page_number }}"><i class="bi bi-caret-right-square-fill"></i></a>
+                    <a href="?page={{ page_accounts.next_page_number }}"><i
+                            class="bi bi-caret-right-square-fill"></i></a>
                 {% endif %}
             </div>
         </div>
@@ -46,7 +52,8 @@
                         <td>{{ account.code }}</td>
                         <td>{{ account.name }}</td>
                         <td>{{ account.type }}</td>
-                        <td><a href="{% url 'accounting:update-chart-accounts' account.pk %}" class="btn btn-warning btn-sm"><i
+                        <td><a href="{% url 'accounting:update-chart-accounts' account.pk %}"
+                               class="btn btn-warning btn-sm"><i
                                 class="bi bi-pencil-square"></i></a>
                             <a href="{% url 'contacts:delete-industry' account.pk %}" class="btn btn-danger btn-sm"><i
                                     class="bi bi-trash3"></i></a></td>

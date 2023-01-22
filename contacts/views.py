@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import Industries, Countries, Cities, Customers
 from .forms import FormIndustry, FormCountry, FormCities, FormCustomers
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
-
+import csv
 
 # Countries
 @login_required(login_url='login')
@@ -191,11 +191,26 @@ def update_customers(request, pk):
     }
     return render(request, 'customerForm.html', context)
 
+
 @login_required(login_url='login')
 def delete_customers(request, pk):
     customers = Customers.objects.get(id=pk)
     customers.delete()
     return redirect('contacts:customers')
+
+
+# Customers Export
+@login_required(login_url='login')
+def export_customers(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=customers.csv'
+    writer = csv.writer(response)
+    customers = Customers.objects.all()
+    writer.writerow(['ID', 'FUll Name', 'Phone', 'Email', 'Job Title', 'Company Name'])
+    for customer in customers:
+        writer.writerow([customer.id, (customer.first_name + ' ' + customer.last_name), customer.phone_number, customer.email, customer.job_title, customer.company_name])
+    return response
+
 
 @login_required(login_url='login')
 def home_suppliers(request):

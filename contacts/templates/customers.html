@@ -6,6 +6,10 @@
     <div class="row py-4">
         <div class="d-flex justify-content-between">
             <a href="{% url 'contacts:create-customers' %}" class="ms-2 btn btn-primary btn-sm">Add Customer</a>
+        <div>
+                <a class="btn btn-primary btn-sm " href="{% url 'contacts:export-customers' %}"><i
+                        class="bi bi-save"></i><span class="ps-2">Export CSV</span></a>
+            </div>
             <div class="px-4">
                 {{ page_customers.number }}-{{ page_customers.paginator.num_pages }}
                 {% if page_customers.has_previous %}

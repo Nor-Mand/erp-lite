@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import ChartOfAccounts, Taxes, Currency
 from .forms import FormChartOfAccounts, FormTaxes, FormCurrency
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
-
+import csv
 
 # Home Chart of Accounts
 @login_required(login_url='login')
@@ -45,6 +45,20 @@ def update_chart_of_accounts(request, pk):
         'chartAccounts': chartAccounts,
     }
     return render(request, 'chartOfAccounts.html', context)
+
+
+# Chart of Account Export CSV
+@login_required(login_url='login')
+def char_of_account_export(request):
+    response = HttpResponse(content_type='type/csv')
+    response['Content-Disposition'] = 'attachment; filename=accounts.csv'
+    writer = csv.writer(response)
+    accounts = ChartOfAccounts.objects.all()
+    writer.writerow(['Code', 'Name', 'Type'])
+
+    for account in accounts:
+        writer.writerow(([account.code, account.name, account.type]))
+    return response
 
 
 # Taxes
@@ -117,15 +131,23 @@ def home_currency(request):
 # Update Currency
 @login_required(login_url='login')
 def update_currency(request, pk):
-    currency = Currency.objects.get(id=pk)
+    obj = Currency.objects.get(id=pk)
     if request.method == 'POST':
-        form = FormCurrency(request.POST, instance=currency)
+        form = FormCurrency(request.POST, instance=obj)
         if form.is_valid():
             form.save()
         return redirect('accounting:currency')
     else:
-        form = FormCurrency(instance=currency)
+        form = FormCurrency(instance=obj)
     context = {
         'form': form,
+        'obj': obj
     }
-    return render(request, 'currency.html', context)
+    return render(request, 'updateCurrency.html', context)
+
+# Delete Currencey
+@login_required(login_url='login')
+def delete_currency(request, pk):
+    currency = Currency.objects.get(id=pk)
+    currency.delete()
+    return redirect('accounting:currency')
