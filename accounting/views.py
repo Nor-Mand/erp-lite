@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, HttpResponse
-from .models import ChartOfAccounts, Taxes, Currency
+from .models import ChartOfAccounts, Taxes, Currency, CategoryAccounts
 from .forms import FormChartOfAccounts, FormTaxes, FormCurrency
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 import csv
+import os
 
 # Home Chart of Accounts
 @login_required(login_url='login')
@@ -15,7 +16,7 @@ def chart_of_accounts(request):
         if form.is_valid():
             form.save()
         return redirect('accounting:chart-accounts')
-    paginator = Paginator(ChartOfAccounts.objects.all(), 10)
+    paginator = Paginator(ChartOfAccounts.objects.all(), 15)
     page_number = request.GET.get('page')
     page_accounts = paginator.get_page(page_number)
     context = {
@@ -46,6 +47,30 @@ def update_chart_of_accounts(request, pk):
     }
     return render(request, 'chartOfAccounts.html', context)
 
+# Delete Char of Accounts
+@login_required(login_url='login')
+def delete_chart_of_accounts(request, pk):
+    chartAccounts = ChartOfAccounts.objects.get(id=pk)
+    chartAccounts.delete()
+    return redirect('accounting:chart-accounts')
+
+# Char of Account Import CSV
+@login_required(login_url='login')
+def import_chart_of_account(request):
+    accounts = []
+    with open("accounts.csv", "r") as csv_file:
+        data = list(csv.reader(csv_file, delimiter=","))
+        for row in data[1:]:
+            accounts.append(
+                ChartOfAccounts(
+                    code=row[0],
+                    name=row[1],
+                    type=CategoryAccounts.objects.get(name=row[2])
+                )
+            )
+    if len(accounts) > 0:
+        ChartOfAccounts.objects.bulk_create(accounts)
+    return HttpResponse("Succesfully Imported")
 
 # Chart of Account Export CSV
 @login_required(login_url='login')

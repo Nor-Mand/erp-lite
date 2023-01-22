@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Category chart of accounts
 class CategoryAccounts(models.Model):
     name = models.CharField(max_length=220)
@@ -16,6 +17,9 @@ class ChartOfAccounts(models.Model):
 
     def __str__(self):
         return f'{self.code} {self.name}'
+
+    class Meta:
+        ordering = ['code']
 
 
 # Taxes

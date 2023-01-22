@@ -1,0 +1,341 @@
+﻿Nominal Code,Description ,Type
+3010,Capitation/Non Pay Budget,Income
+3020,DEIS Grant,Income
+3030,Non Teachers Pay Budget,Income
+3050,Ancillary/School Support Services Grant,Income
+3100,Secretarial Grant,Income
+3130,Caretaker Grant,Income
+3140,Special Education Equipment Grant,Income
+3150,Book Grant Income,Income
+3155,School Library Books Capital Grant ,Income
+3160,Book Rental Scheme Grant,Income
+3170,Special Subject Grant,Income
+3190,JCSP Grant,Income
+3200,Transition Year Grant,Income
+3210,Leaving Certificate Applied Grant,Income
+3220,Grant for Traveller Students,Income
+3225,Amortisation of  DE Equipment Grants,Income
+3226,Amortisation of  DE ICT Grants,Income
+3227,Amortisation of Other DE Grants,Income
+3230,ICT Grant Non Capital,Income
+3240,Supervision and Substitution Grant,Income
+3245,Physics/Chemistry Grant,Income
+3255,State Exam Income,Income
+3260,School Excellence Fund Income,Income
+3270,Sports Complex Grant,Income
+3275,Minor Works Grant-Non Capital,Income
+3276,Temporary Accommodation Grant Income,Income
+3277,COVID Minor Works Grant           ,Income
+3280,COVID Aide Grant,Income
+3281,COVID Capitation PPE Grant,Income
+3282,COVID Enhanced Supervision Grant,Income
+3283,COVID Capitation for Additional Cleaning Grant,Income
+3284,COVID Funding for Replacement Caretaker Hours,Income
+3285,COVID Funding for Replacement Secretarial Hours,Income
+3286,COVID Funding for Replacement Cleaner Hours,Income
+3287,COVID Funding for Replacement Bus Escort Hours,Income
+3290,Other Non Capital DE Grant Income                           ,Income
+3292,Standardised Testing Grant,Income
+3293,Summer Provision Grant                         ,Income
+3294,Bus Escort Grant,Income
+3295,Department of Children and Youth Affairs Income,Income
+3296,DEASP School Meals Grant,Income
+3297,Erasmus Income,Income
+3298,HSE Funding,Income
+3299,Other State Funding,Income
+3300,Education Fees (Fee paying schools),Income
+3310,Transition Year Income,Income
+3330,Book Rental Scheme Income,Income
+3335,Classroom Books Income,Income
+3350,Hire of Facilities Rental Income,Income
+3360,Sports Complex Income,Income
+3370,Locker Income,Income
+3375,Journals and Year Book Income,Income
+3390,School Administration Charges,Income
+3395,Practical Subjects Income,Income
+3410,Adult Education Income,Income
+3420,Canteen Income,Income
+3430,Tuck Shop Income,Income
+3440,Uniforms Income,Income
+3450,Religion/Ethos Income,Income
+3460,Career Guidance Income,Income
+3490,After School Study/Club Income,Income
+3495,Mock Exam Income,Income
+3500,Games Income,Income
+3510,Bus Income,Income
+3520,School Musical/Drama Income,Income
+3530,School Tours Income,Income
+3531,School Swimming Income,Income
+3535,Student Insurance Income,Income
+3540,Pre-School Income,Income
+3545,Summer Camps Income,Income
+3550,Reimbursable Income,Income
+3570,Other School Generated Income,Income
+3572,School Arts and Crafts Income,Income
+3573,School Dance Income                                                                ,Income
+3574,Restricted School Fundraising (Non Capital),Income
+3575,Unrestricted School Fundraising  (Non Capital),Income
+3580,Discounts Given,Income
+3650,Voluntary Contributions,Income
+3700,Income from Parents Association,Income
+3770,Insurance Claim Income,Income
+3800,Bank Interest Received,Income
+3840,Amortisation of Non DE funding                                             ,Income
+3850,Other Income,Income
+3851,Designated Income (Non Capital),Income
+3852,Restricted External Fundraising  (Non Capital),Income
+3853,Unrestricted External Fundraising  (Non Capital),Income
+4110,Substitute Teachers Expense,Expenditure
+4111,Privately Paid Teachers Expense,Expenditure
+4112,Chaplain Salaries Expense,Expenditure
+4150,Supervision and Substitution Salaries Expense,Expenditure
+4155,State Exam Salaries Expense,Expenditure
+4170,Adult Education Salaries Expense,Expenditure
+4180,Sport Coach Salaries Expense,Expenditure
+4181,Canteen Salaries Expense,Expenditure
+4190,After School Study/Club Salaries Expense,Expenditure
+4191,Summer Camps Salaries Expense,Expenditure
+4196,Bus Escort Salary Expense,Expenditure
+4197,COVID Replacement Bus Escort Hours Expense,Expenditure
+4198,Other Educational Salaries Expense,Expenditure
+4199,HSE Funded Salaries Expense,Expenditure
+4310,Teaching Aids Expense,Expenditure
+4330,Religion/Ethos Expense,Expenditure
+4350,Art Expense,Expenditure
+4370,Home Economics Expense,Expenditure
+4390,Science Expense,Expenditure
+4410, ICT Grant Non - Capital Expense                   ,Expenditure
+4420,Computer Maintenance & Support Expense,Expenditure
+4430,Woodwork / Building Construction Expense,Expenditure
+4450,Metalwork / Engineering Expense,Expenditure
+4470,Technology Expense,Expenditure
+4490,Other Subjects Expense,Expenditure
+4550,Leaving Cert Applied Expense,Expenditure
+4570,LCVP Expense,Expenditure
+4590,Transition Year Expense,Expenditure
+4610,Learning Support Expense,Expenditure
+4620,Teacher Inservice and Training Expense,Expenditure
+4630,Career Guidance Expense,Expenditure
+4635,Student Wellbeing Expense,Expenditure
+4640,Library Non Grant Funded Expense                                                                                                           ,Expenditure
+4641,School Library Books Capital Grant Expense,Expenditure
+4650,Physical Education Expense,Expenditure
+4670,Games (excl. travel) Expense,Expenditure
+4671,Travel Games Expense,Expenditure
+4690,Bus Hire Expense,Expenditure
+4710,School Tours Expense,Expenditure
+4720,School Musical/Drama Expense,Expenditure
+4730,Book Grant Expense,Expenditure
+4740,Book Rental Scheme Expense,Expenditure
+4741,Classroom Book Expense,Expenditure
+4750,Mock Examinations Expense,Expenditure
+4760,School Yearbook/Journal Expense,Expenditure
+4770,Trophies and Prizes Expense,Expenditure
+4780,Uniform Expense,Expenditure
+4810,Home School Liaison Expense,Expenditure
+4815,School Excellence Fund Expense,Expenditure
+4850,Student Council Expense,Expenditure
+4908,Other Summer Camps Expense,Expenditure
+4909,Other Summer Provision Expense,Expenditure
+4910,Other Educational Expense,Expenditure
+4911,Department of Children and Youth Affairs Activities Expense,Expenditure
+4912,DSP School Meals Food Costs                       ,Expenditure
+4913,Erasmus Expense,Expenditure
+4914,Other Non Capital DE Grants Expense                       ,Expenditure
+4915,Other Canteen Expense,Expenditure
+4916,Student Insurance Expense,Expenditure
+4917,Standardised Testing Expense,Expenditure
+4918,Designated Expenditure (Non Capital),Expenditure
+4919,Special Educational Equipment (Non Capital) Expense,Expenditure
+4920,School Dance Expense                                               ,Expenditure
+4921,School Swimming Expense,Expenditure
+4922,Restricted School Fundraising Expenses  (Non Capital),Expenditure
+4923,Restricted External Fundraising Expenses  (Non Capital),Expenditure
+4924,Unrestricted External Fundraising Expenses (Non Capital),Expenditure
+4925,Unrestricted School Fundraising Expenses (Non Capital),Expenditure
+4927,School Arts and Crafts Expense,Expenditure
+4928,Other HSE Expense,Expenditure
+4930,Pre-School Expense,Expenditure
+5010,Caretaker Wages Expense,Expenditure
+5011,COVID Replacement Caretaker Hours Expense,Expenditure
+5020,Caretaker Sports Complex Wages Expense,Expenditure
+5030,Caretaker Pension Expense,Expenditure
+5110,Cleaners Wages Expense,Expenditure
+5111,COVID Replacement Cleaner Hours Expense,Expenditure
+5112,Cleaners' Pension Expense,Expenditure
+5150,Contract Cleaners Expense,Expenditure
+5170,Cleaning Materials Expense,Expenditure
+5175,Other Cleaning and Sanitation Expense,Expenditure
+5310,Repairs to Buildings and Grounds Expense,Expenditure
+5315,Minor Works Grant (Non Capital) Expense,Expenditure
+5316,COVID Minor Works Grant Expense    ,Expenditure
+5350,"Repairs to Furniture, Fittings and Equipment Expense",Expenditure
+5400,Routine Security Expense                                                        ,Expenditure
+5450,General Insurance Expense                                                   ,Expenditure
+5510,Heating Expense,Expenditure
+5550,Light and Power Expense,Expenditure
+5551,Rent of Temporary Accommodation Expense,Expenditure
+5552,Other Rental Costs Expense,Expenditure
+5610,Refuse Expense                          ,Expenditure
+5611,Water Rates Expense,Expenditure
+5700,Licence Fee to Patron/Trustee Expense,Expenditure
+5710,Sports Complex Repairs & Maintenance Expenses                               ,Expenditure
+5800,Other Repairs and Maintenance Expense,Expenditure
+5801,COVID Aide Grant Wages Expense,Expenditure
+5802,COVID Capitation for PPE Grant Expense,Expenditure
+5803,COVID Enhanced Supervision Grant Wages Expense,Expenditure
+5804,COVID Capitation for Cleaning Wages Expense,Expenditure
+5805,COVID Capitation for Cleaning Non Wages Expense,Expenditure
+6010,Clerical Officers/Secretarial Wages Expense,Expenditure
+6011,COVID Replacement Secretary Hours Expense,Expenditure
+6050,Clerical Officers/Secretarial Pension Expense,Expenditure
+6070,Sports Complex Administrative Wages Expense,Expenditure
+6100,Recruitment Expense,Expenditure
+6150,Advertising / Public Relations Expense,Expenditure
+6210,Postage Expense,Expenditure
+6250,Telephone Expense / SMS Text,Expenditure
+6300,Printing and Stationery Expense,Expenditure
+6305,Photocopying Expense,Expenditure
+6350,Office Equipment (Non Capital) Expense,Expenditure
+6355,Non-ICT Grant Funded Office Computers Expense        ,Expenditure
+6400,Accounting / Auditing Expense,Expenditure
+6450,Other Professional Fees Expense,Expenditure
+6500,Travel and Subsistence Expense,Expenditure
+6600,Principals Expenses,Expenditure
+6650,Board of Management Expense,Expenditure
+6700,Annual Subscriptions Expense,Expenditure
+6730,InSchool Administration System Expense,Expenditure
+6731,Accounting Software / Payroll Software Expense,Expenditure
+6750,Donations to Charity,Expenditure
+6755,Medical and First Aid Expense,Expenditure
+6780,Staff Room Expenses,Expenditure
+6800,Hospitality Expense,Expenditure
+6830,Tuck Shop Expense,Expenditure
+6870,Sports Complex Administrative Expenses,Expenditure
+6900,Other Administration Expenses,Expenditure
+7300,Leasing Expenses,Expenditure
+7320,Loan Charges Expense,Expenditure
+7400,Bank Interest Expense,Expenditure
+7450,Bank Charges Expense,Expenditure
+7500,Pensioners Payroll Expense,Expenditure
+7800,Reimbursable Expenses,Expenditure
+7850,Discounts Received,Expenditure
+8000,Annual Depreciation: Buildings,Expenditure
+8020,"Annual Depreciation: Fixtures, Fittings and Equipment",Expenditure
+8040,Annual Depreciation: Motor Vehicles,Expenditure
+8060,Annual Depreciation: ICT,Expenditure
+8080,Annual Depreciation: Other,Expenditure
+1400,Capital: Land and Buildings Cost B/Fwd                                                                                                                      ,Fixed Asset
+1401,Capital: Land and Buildings Additions,Fixed Asset
+1402,Capital: Land and Buildings Disposals,Fixed Asset
+1410,Accumulated Depreciation : Land and Buildings B/Fwd                                                    ,Fixed Asset
+1411,Depreciation: Land and Buildings Current Year,Fixed Asset
+1412,Depreciation: Land and Buildings on Disposal,Fixed Asset
+1420,"Capital: Fixtures, Fittings and Equipment Cost B/Fwd                                                       ",Fixed Asset
+1421,"Capital: Fixtures, Fittings and Equipment Additions",Fixed Asset
+1422,"Capital: Fixtures, Fittings and Equipment Disposals ",Fixed Asset
+1425,"Capital: Covid Minor Works Fixtures, Fittings and Equipment Cost B/Fwd           ",Fixed Asset
+1426,"Capital: Covid Minor Works Fixtures, Fittings and Equipment Additions",Fixed Asset
+1427,"Capital: Covid Minor Works Fixtures, Fittings and Equipment Disposals",Fixed Asset
+1430,"Accumulated Depreciation: Fixtures, Fittings and Equipment B/Fwd                         ",Fixed Asset
+1431,"Depreciation: Fixtures, Fittings and Equipment Current Year       ",Fixed Asset
+1432,"Depreciation: Fixtures, Fittings and Equipment Disposal             ",Fixed Asset
+1435,"Accumulated Depreciation: Covid Minor Works Fixtures, Fittings and Equipment B/Fwd           ",Fixed Asset
+1436,"Depreciation: Covid Minor Works Fixtures, Fittings and Equipment Current Year ",Fixed Asset
+1437,"Depreciation: Covid Minor Works Fixtures, Fittings and Equipment Disposal",Fixed Asset
+1440,Capital: Motor Vehicles Cost B/Fwd                                                                                                                                                          ,Fixed Asset
+1441,Capital: Motor Vehicles Additions,Fixed Asset
+1442,Capital: Motor Vehicles Disposals,Fixed Asset
+1450,Accumulated Depreciation: Motor Vehicles B/Fwd                                                                                          ,Fixed Asset
+1451,Depreciation: Motor Vehicles Current Year ,Fixed Asset
+1452,Depreciation: Motor Vehicles Disposal,Fixed Asset
+1460,Capital: ICT Cost B/Fwd                                                                                                                                                                                    ,Fixed Asset
+1461,Capital: ICT Additions,Fixed Asset
+1462,Capital: ICT Disposals,Fixed Asset
+1465,Capital: Covid Minor Works ICT Cost B/Fwd                                                                                                        ,Fixed Asset
+1466,Capital: Covid Minor Works ICT Additions,Fixed Asset
+1467,Capital: Covid Minor Works ICT Disposals,Fixed Asset
+1470,Accumulated Depreciation: ICT Cost B/Fwd                                                                                                                 ,Fixed Asset
+1471,Depreciation: ICT Current Year ,Fixed Asset
+1472,Depreciation: ICT Disposal ,Fixed Asset
+1475,Accumulated Depreciation: Covid Minor Works ICT B/Fwd                                                               ,Fixed Asset
+1476,Depreciation: Covid Minor Works ICT Current Year ,Fixed Asset
+1477,Depreciation: Covid Minor Works ICT Disposals,Fixed Asset
+1480,Capital: Other Cost B/Fwd                                                                                                                                                    ,Fixed Asset
+1481,Capital: Other Additions,Fixed Asset
+1482,Capital: Other Disposals,Fixed Asset
+1490,Accumulated Depreciation Other Cost B/Fwd                                                                                            ,Fixed Asset
+1491,Accumulated Depreciation Other Current Year ,Fixed Asset
+1492,Accumulated Depreciation Other Disposals,Fixed Asset
+1700,Sales Ledger Control,Current Asset
+1705,Debtors,Current Asset
+1710,Stock,Current Asset
+1720,Prepayments,Current Asset
+1730,Grants Due,Current Asset
+1800,Current Account 1,Current Asset
+1801,Current Account 2,Current Asset
+1802,Current Account 3,Current Asset
+1803,DEASP School Meal Bank Account,Current Asset
+1810,Deposit Account,Current Asset
+1820,Parents Council/Association Bank Account,Current Asset
+1850,Credit Card Account,Current Asset
+1870,Online Payment Solution Clearing Account,Current Asset
+1900,Petty Cash Account,Current Asset
+1950,Cash Control Account,Current Asset
+2100,Creditors Control Account,Current Liability
+2105,School Income Received in Advance,Current Liability
+2150,Grants Received in Advance,Current Liability
+2151,Book Grant Received in Advance,Current Liability
+2152,DEIS Grant Received in Advance,Current Liability
+2160,Book Grant Unspent,Current Liability
+2161,School Library Books Capital Grant Unspent,Current Liability
+2165,ICT Grant Unspent,Current Liability
+2166,Minor Works Grant Unspent ,Current Liability
+2167,JCSP Grant Unspent ,Current Liability
+2168,Non Teachers Pay Budget Grant Unspent ,Current Liability
+2169,COVID Minor Works Grant Unspent ,Current Liability
+2170,Supervision and Substitution Grant Unspent,Current Liability
+2171,Other Ringfenced Grants Unspent,Current Liability
+2172,Other Ringfenced Income Unspent,Current Liability
+2179,Digital Divide Grant Unspent,Current Liability
+2180,School Excellence Fund Unspent,Current Liability
+2181,COVID Aide Grant Unspent,Current Liability
+2182,COVID Capitation for PPE Grant Unspent,Current Liability
+2183,COVID Enhanced Supervision Grant Unspent,Current Liability
+2184,COVID Capitation for Additional Cleaning Grant Unspent,Current Liability
+2185,COVID Replacement Hours Unspent,Current Liability
+2200,Net Wages Control Account,Current Liability
+2210,Union Fees Control Account,Current Liability
+2220,Single Public Service Pension Scheme Control Account,Current Liability
+2230,ASC Control Account,Current Liability
+2240,PRSA Control Account,Current Liability
+2250,PAYE/PRSI/USC/LPT Control Account,Current Liability
+2260,Reverse VAT Control Account,Current Liability
+2270,RCT Control Account,Current Liability
+2310,Bank Loans,Current Liability
+2320,Other Loan,Current Liability
+2330,Leasing,Current Liability
+2440,Accruals,Current Liability
+2600,Long Term Loan ,Long Term Liabilities
+2700,Retained Surplus,Capital & Reserves
+2710,Surplus Brought Forward,Capital & Reserves
+3900,DE Capital Building Grant Income                                         ,Capital & Reserves
+3901,Capital Projects Fundraising Income                                        ,Capital & Reserves
+3902,Parents Contribution to Capital Projects Income,Capital & Reserves
+3903,Patron/Trustee Contribution to Capital Projects Income    ,Capital & Reserves
+3904,Other State Capital Projects Income                                           ,Capital & Reserves
+3905,Covid Minor Works Capital Grant Income,Capital & Reserves
+3906,Accumulated Amortisation of Capital Building Income,Capital & Reserves
+3907,Capital Donations Income,Capital & Reserves
+3920,"DE Fixtures, Fittings & Equipment Grant Income                                     ",Capital & Reserves
+3921,DE ICT Grant Capital Income                                                                   ,Capital & Reserves
+3925,Accumulated Amortisation of Capital Equipment Income,Capital & Reserves
+3926,Accumulated Amortisation of ICT Grant Capital Income,Capital & Reserves
+3940,DE Capital Building Grant Expense                                         ,Capital & Reserves
+3941,Covid Minor Works Building Expense,Capital & Reserves
+3960,Capital Building Fundraising Expense                                 ,Capital & Reserves
+3970,Parents Contribution to Capital Building Expense            ,Capital & Reserves
+3990,Patron/Trustee Contribution to Capital Building Expense  ,Capital & Reserves
+3991,Other State Capital Building Expense                             ,Capital & Reserves
+3992,Capital Donations Building Expense,Capital & Reserves
+3995,Building Fund Account,Capital & Reserves
