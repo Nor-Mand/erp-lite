@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Customs
+    "bootstrap5",
+    "django_sass",
     "django_browser_reload",
     "login",
     "home",

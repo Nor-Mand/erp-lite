@@ -54,6 +54,9 @@
                     </ul>
                 </li>
             </ul>
+            {% if request.user.is_authenticated %}
+                <p>Hello, {{ request.user.username }}</p>
+          {% endif %}
             <ul class="nav">
                 <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

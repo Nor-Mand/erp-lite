@@ -1,0 +1,27 @@
+.login-form{
+    background-color: $primary-color;  
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-image{
+    height: 100vh;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+form{
+    width: 50%;  
+    .btn-login{
+        background-color: $button-primary-color !important;
+        border: 0;
+        transition: 0.3s all;
+        &:hover{
+            background-color: rgba($button-primary-color,0.1) !important;
+            }
+        }
+}
