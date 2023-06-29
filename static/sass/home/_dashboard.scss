@@ -1,0 +1,36 @@
+.dashboard{
+    background-color: $dashboard-primary-color;   
+    height: 100vh; 
+    padding: 50px 100px !important;
+    p{
+        font-size: 12px !important;  
+        color: $text-primary-color;
+        margin: 0 !important; 
+    }
+    h2{
+        color: $text-primary-color;
+    }
+}
+
+.card{
+    height: 100%;
+    background-color: $dashboard-secondary-color;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    padding: 30px;
+    position: relative;
+    border-radius: 6px;
+}
+.sub{
+    display: flex;
+    
+    align-content: space-between;  
+    height: 100%;
+}
+.sub-card{
+    max-height: 90px;  
+    background-color: $dashboard-secondary-color;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    padding: 20px; 
+    border-radius: 6px;
+    
+}

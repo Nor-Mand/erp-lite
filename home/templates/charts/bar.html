@@ -1,0 +1,35 @@
+<div class="col-md-4">
+  <div class="row sub">
+    <div class="col-sm-12">
+      <div class="sub-card">
+        <p>Cash in bank</p>
+        <h2>€ 89,999</h2>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="sub-card">
+        <p>Burn</p>
+        <h2>€ 452</h2>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="sub-card">
+        <p>expenses</p>
+        <h2>€ 239</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-8">
+  <div class="card">
+    <p class="mb-2">Debtors annual</p>
+    <canvas id="barChart" width="400" height="100"></canvas>
+  </div>
+</div>
+{% block CustomScripts %}
+<script>
+  $(document).ready(function () {
+      {% include 'charts/bar.js' %}
+  });
+</script>
+{% endblock CustomScripts %}

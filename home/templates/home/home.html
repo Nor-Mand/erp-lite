@@ -1,31 +1,32 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home | CRM lite</title>
-    <link rel="stylesheet" href="{% static 'main.css' %}">
-</head>
-<body>
-{% include 'home/navBar.html' %}
+  <head>
+    <meta charset="UTF-8" />
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
+     <!-- jQuery -->
+     <script src="{% static '/js/jquery.js' %}"></script>
+    <!-- plugins -->
+    <script src="{% static '/js/chart.js' %}"></script>
+    <title>CRM lite | Home</title>
+  </head>
+  <body>
+    {% include 'home/navBar.html' %} {% comment %}
     <div class="row bg-white border-buttom">
-        <div class="col-10 mx-auto p-2">
-            <h5>
-                {% block Title %}
-                
-                {% endblock %}
-            </h5>
-        </div>
+      <div class="col-10 mx-auto p-2">
+        <h5>{% block Title %} {% endblock %}</h5>
+      </div>
     </div>
-<div class="container-fluid bg-light">
-    {% block content %}
-    {% endblock %}
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-{% block CustomScripts %}
-
-{% endblock %}
-</body>
+    {% endcomment %}
+    <div class="container-fluid dashboard">
+      <div class="row gx-2 mb-4">
+        {% include 'charts/bar.html'%}
+      </div>
+      <div class="row">
+        {% include 'charts/sales/sales.html'%}
+      </div>
+    </div>
+    {% block CustomScripts %} {% endblock %}
+  </body>
 </html>
