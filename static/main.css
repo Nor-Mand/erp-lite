@@ -67,6 +67,10 @@ nav p {
   font-size: 14px;
 }
 
+nav .dropdown-item {
+  color: #212529 !important;
+}
+
 .dashboard {
   background-color: #16113A;
   height: 100vh;

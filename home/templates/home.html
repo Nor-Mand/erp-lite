@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
+     <!-- jQuery -->
+     <script src="{% static '/js/jquery.js' %}"></script>
+    <!-- plugins -->
+    <script src="{% static '/js/chart.js' %}"></script>
+    <title>ERP lite | Home</title>
+  </head>
+  <body>
+    {% include 'header/navBar.html' %}
+    {% block content%}
+    {% endblock content%}
+
+    <!-- scripts -->
+    {% block CustomScripts %} {% endblock %}
+  </body>
+</html>

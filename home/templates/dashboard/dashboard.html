@@ -1,0 +1,11 @@
+{% extends 'home.html'%}
+{% block content%}
+<div class="container-fluid dashboard">
+  <div class="row gx-2 mb-4">
+    {% include 'charts/bar.html'%}
+  </div>
+  <div class="row">
+    {% include 'charts/sales/sales.html'%}
+  </div>
+</div>
+{% endblock %}

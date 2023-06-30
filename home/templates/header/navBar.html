@@ -1,13 +1,13 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'logo.png' %}" alt="" width="100">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Dashboard</a>
                 </li>
                  <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -26,14 +26,26 @@
                         <li><a class="dropdown-item" href="">Balance Sheet</a></li>
                         <li><a class="dropdown-item" href="">Profit and Loss</a></li>
                         <li><a class="dropdown-item" href="">Trial Balance</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Reporting
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <p class="ps-2 m-0 fw-bold text-muted">Statements Reports</p>
+                        </li>
+                        <li><a class="dropdown-item" href="">Balance Sheet</a></li>
+                        <li><a class="dropdown-item" href="">Profit and Loss</a></li>
+                        <li><a class="dropdown-item" href="">Trial Balance</a></li>
                         <li>
                             <hr class="dropdown-divider">
-                            <p class="ps-2 m-0 fw-bold text-muted">Configuration</p>
                         </li>
-                        <li><a class="dropdown-item" href="{% url 'accounting:chart-accounts' %}">Chart of Accounts</a></li>
-                        <li><a class="dropdown-item" href="{% url 'accounting:taxes' %}">Taxes</a></li>
-                        <li><a class="dropdown-item" href="{% url 'accounting:currency' %}">Currencies</a></li>
-                        <li><a class="dropdown-item" href="">Bank Acccounts</a></li>
+                        <li><a class="dropdown-item" href="">Report 4</a></li>
+                        <li><a class="dropdown-item" href="">Report 5</a></li>
+                        <li><a class="dropdown-item" href="">Report 6</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -51,6 +63,18 @@
                         <li><a class="dropdown-item" href="{% url 'contacts:industry' %}">Industries</a></li>
                         <li><a class="dropdown-item" href="{% url 'contacts:country' %}">Countries</a></li>
                         <li><a class="dropdown-item" href="{% url 'contacts:cities' %}">Cities</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Configuration
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'accounting:chart-accounts' %}">Chart of Accounts</a></li>
+                        <li><a class="dropdown-item" href="{% url 'accounting:taxes' %}">Taxes</a></li>
+                        <li><a class="dropdown-item" href="{% url 'accounting:currency' %}">Currencies</a></li>
+                        <li><a class="dropdown-item" href="">Bank Acccounts</a></li>
                     </ul>
                 </li>
             </ul>
