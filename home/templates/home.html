@@ -13,9 +13,10 @@
   </head>
   <body>
     {% include 'header/navBar.html' %}
-    {% block content%}
-    {% endblock content%}
-
+    <div class="container-fluid">
+      {% block content%}
+      {% endblock content%}
+    </div>
     <!-- scripts -->
     {% block CustomScripts %} {% endblock %}
   </body>
