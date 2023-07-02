@@ -1,4 +1,4 @@
-{% extends 'home/home.html' %}
+{% extends 'home.html' %}
 {% block Title %}
     Taxes
 {% endblock %}
@@ -13,7 +13,7 @@
                     <input type="submit" value="update" class="ms-2 btn btn-warning btn-sm">
                     <a href="{% url 'accounting:taxes' %}" class="btn btn-secondary btn-sm">cancel</a>
                 {% else %}
-                    <input type="submit" value="create" class="ms-2 btn btn-primary btn-sm">
+                    <input type="submit" value="create" class="ms-2 btn btn-erp-primary btn-sm">
                 {% endif %}
             </form>
             <div class="px-4">
@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="row bg-white">
+    <div class="row bg-white p-4">
         <table class="table">
             <thead class="table-light">
             <tr>

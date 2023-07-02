@@ -79,6 +79,7 @@ def import_chart_of_account(request):
         ChartOfAccounts.objects.bulk_create(accounts)
     return HttpResponse("Succesfully Imported")
 
+
 # Chart of Account Export CSV
 @login_required(login_url='login')
 def char_of_account_export(request):

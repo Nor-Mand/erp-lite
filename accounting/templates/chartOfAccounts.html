@@ -3,8 +3,9 @@
 Chart of Accounts
 {% endblock %}
 {% block content %}
-<div class="row align-items-center mt-4 mb-4">
-    <div class="col-md-8">
+<div class="container-fluid">
+    <div class="row align-items-center mt-4 mb-4">
+        <div class="col-md-8">
         <form method="POST" action="">
             {% csrf_token %}
             {{ form }}
@@ -17,7 +18,7 @@ Chart of Accounts
             {% endif %}
         </form>
     </div>
-    <div class="col-md-4 d-flex justify-content-end">
+        <div class="col-md-4 d-flex justify-content-end">
         <div class="">
             <p>{{ page_accounts.number }}-{{ page_accounts.paginator.num_pages }}</p>
         </div>
@@ -54,11 +55,11 @@ Chart of Accounts
                  viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg>
-                <input type="search" name="q" placeholder="Search..." class="input-chart">
+                <input type="search" name="q" placeholder="Search..." class="input-chart" value="{{ request.GET.q }}">
         </form>
     </div>
-</div>
-<div class="row bg-white">
+    </div>
+    <div class="row bg-white p-4">
     <table class="table">
         <thead class="table-light">
         <tr>
@@ -113,5 +114,6 @@ Chart of Accounts
         </tbody>
     </table>
 
+</div>
 </div>
 {% endblock %}
