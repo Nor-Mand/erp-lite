@@ -184,3 +184,7 @@ def delete_currency(request, pk):
     currency = Currency.objects.get(id=pk)
     currency.delete()
     return redirect('accounting:currency')
+
+# Bank account
+def bank_account(request):
+    return render(request, 'bankAccount.html')

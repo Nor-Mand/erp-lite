@@ -15,4 +15,5 @@ urlpatterns = [
     path('currency/', home_currency, name='currency'),
     path('currency/<int:pk>', update_currency, name='update-currency'),
     path('currency/delete/<int:pk>', delete_currency, name='delete-currency'),
+    path('bank-account/', bank_account, name="bank-account"),
 ]

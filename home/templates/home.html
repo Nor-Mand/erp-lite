@@ -9,7 +9,7 @@
      <script src="{% static '/js/jquery.js' %}"></script>
     <!-- plugins -->
     <script src="{% static '/js/chart.js' %}"></script>
-    <title>ERP lite | Home</title>
+    <title>ERP lite | {% block title %}{% endblock %}</title>
   </head>
   <body>
     {% include 'header/navBar.html' %}
