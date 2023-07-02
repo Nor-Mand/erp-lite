@@ -41,10 +41,11 @@ INSTALLED_APPS = [
     "bootstrap5",
     "django_sass",
     "django_browser_reload",
-    "login",
-    "home",
-    "contacts",
-    "accounting",
+    # Apps
+    "login.apps.LoginConfig",
+    "home.apps.HomeConfig",
+    "contacts.apps.ContactsConfig",
+    "accounting.apps.AccountingConfig",
 
 
 ]

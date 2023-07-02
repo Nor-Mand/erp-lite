@@ -5,3 +5,29 @@
 input, select{
     height: 30px !important;    
 }
+.form-switch{
+    height:10px !important;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input{
+        height: 70% !important;
+        width: 100% !important;
+    }
+}
+.search-chart{
+    border: 1px solid gray;
+    padding: 0px 10px;
+    width: 100%;
+    &:focus-visible{
+        outline: 1px solid $primary-color;
+    }
+    input {
+        width: 300px;
+        border: none !important;
+    }
+    input:focus-visible{
+        outline: none !important;
+    }
+}

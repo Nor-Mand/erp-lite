@@ -1,84 +1,117 @@
 {% extends 'home.html' %}
 {% block Title %}
-    Chart of Accounts
+Chart of Accounts
 {% endblock %}
 {% block content %}
-    <div class="row align-items-center mt-4 mb-4">
-        <div class="col-md-8">
-            <form method="POST" action="">
-                {% csrf_token %}
-                {{ form }}
-                {#                {% if request.method == 'POST' %}#}
-                {% if page_name %}
-                    <input type="submit" value="update" class="ms-2 btn btn-warning btn-sm">
-                    <a href="{% url 'accounting:chart-accounts' %}" class="btn btn-secondary btn-sm">cancel</a>
-                {% else %}
-                    <input type="submit" value="create" class="ms-2 btn btn-sm btn-erp-primary">
-                {% endif %}
-            </form>
-        </div>
-        <div class="col-md-4 d-flex justify-content-end">
-            <div class="">
-                <p>{{ page_accounts.number }}-{{ page_accounts.paginator.num_pages }}</p>
-            </div>
-            <div class="me-4">
-                {% if page_accounts.has_previous %}
-                <a class="paginator" href="?page={{ page_accounts.previous_page_number }}"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="20" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
-                  </svg></a>
-                {% endif %}
-                {% if page_accounts.has_next %}
-                <a class="paginator" href="?page={{ page_accounts.next_page_number }}"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                  </svg></a>
-                {% endif %}
-            </div>
-            <div class="me-2">
-                <a class="btn btn btn-outline-secondary btn-sm " href="{% url 'accounting:import-accounts' %}"><i
-                    class="bi bi-save"></i><span class="ps-2">Import CSV</span></a>
-            </div>
-            <div>
-                <a class="btn btn-secondary btn-sm " href="{% url 'accounting:export-accounts' %}"><i
-                    class="bi bi-save"></i><span class="ps-2">Export CSV</span></a>
-            </div>
-        </div>
-    </div>
-    <div class="row bg-white">
-        <table class="table">
-            <thead class="table-light">
-            <tr>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% if page_accounts %}
-                {% for account in page_accounts %}
-                    <tr>
-                        <td>{{ account.code }}</td>
-                        <td>{{ account.name }}</td>
-                        <td>{{ account.type }}</td>
-                        <td><a href="{% url 'accounting:update-chart-accounts' account.pk %}"
-                               class="btn btn-warning btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                              </svg></a>
-                            <a href="{% url 'accounting:delete-chart-accounts' account.pk %}" class="btn btn-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-                              </svg></a></td>
-                    </tr>
-                {% endfor %}
+<div class="row align-items-center mt-4 mb-4">
+    <div class="col-md-8">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form }}
+            {# {% if request.method == 'POST' %}#}
+            {% if page_name %}
+            <input type="submit" value="update" class="ms-2 btn btn-warning btn-sm">
+            <a href="{% url 'accounting:chart-accounts' %}" class="btn btn-secondary btn-sm">cancel</a>
             {% else %}
-                <tr>
-                    <td>
-                        No found data.
-                    </td>
-                </tr>
+            <input type="submit" value="create" class="ms-2 btn btn-sm btn-erp-primary">
             {% endif %}
-            </tbody>
-        </table>
-
+        </form>
     </div>
+    <div class="col-md-4 d-flex justify-content-end">
+        <div class="">
+            <p>{{ page_accounts.number }}-{{ page_accounts.paginator.num_pages }}</p>
+        </div>
+        <div class="me-4">
+            {% if page_accounts.has_previous %}
+            <a class="paginator" href="?page={{ page_accounts.previous_page_number }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="20" fill="currentColor"
+                     class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                </svg>
+            </a>
+            {% endif %}
+            {% if page_accounts.has_next %}
+            <a class="paginator" href="?page={{ page_accounts.next_page_number }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="20" fill="currentColor"
+                     class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                </svg>
+            </a>
+            {% endif %}
+        </div>
+        <div class="me-2">
+            <a class="btn btn btn-outline-secondary btn-sm " href="{% url 'accounting:import-accounts' %}"><i
+                    class="bi bi-save"></i><span class="ps-2">Import CSV</span></a>
+        </div>
+        <div>
+            <a class="btn btn-secondary btn-sm " href="{% url 'accounting:export-accounts' %}"><i
+                    class="bi bi-save"></i><span class="ps-2">Export CSV</span></a>
+        </div>
+    </div>
+    <div class="col-md-3 mx-auto mt-4 d-flex justify-content-center">
+        <form action="" method="GET" class="search-chart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                 viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+                <input type="search" name="q" placeholder="Search..." class="input-chart">
+        </form>
+    </div>
+</div>
+<div class="row bg-white">
+    <table class="table">
+        <thead class="table-light">
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if page_accounts %}
+        {% for account in page_accounts %}
+        <tr>
+            <td>{{ account.code }}</td>
+            <td>{{ account.name }}</td>
+            <td>{{ account.type }}</td>
+            <td>
+                <div class="form-check form-switch">
+                    <input
+                            class="form-check-input"
+                            type="checkbox"
+                            role="switch"
+                            id="flexSwitchCheckDefault"
+                            {% if account.status == "PB" %} checked {% else %} {% endif %}
+                    disabled>
+                </div>
+            <td><a href="{% url 'accounting:update-chart-accounts' account.pk %}"
+                   class="btn btn-warning btn-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd"
+                          d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                </svg>
+            </a>
+                <a href="{% url 'accounting:delete-chart-accounts' account.pk %}" class="btn btn-danger btn-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                        <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                    </svg>
+                </a></td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td>
+                No found data.
+            </td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+
+</div>
 {% endblock %}

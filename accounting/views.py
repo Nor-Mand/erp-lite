@@ -3,12 +3,17 @@ from .models import ChartOfAccounts, Taxes, Currency, CategoryAccounts
 from .forms import FormChartOfAccounts, FormTaxes, FormCurrency
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 import csv
 import os
 
 # Home Chart of Accounts
 @login_required(login_url='login')
 def chart_of_accounts(request):
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    account_filter = ChartOfAccounts.objects.filter(
+        Q(name__icontains=q)
+    )
     chartAccounts = ChartOfAccounts.objects.all()
     form = FormChartOfAccounts()
     if request.method == 'POST':
@@ -16,13 +21,15 @@ def chart_of_accounts(request):
         if form.is_valid():
             form.save()
         return redirect('accounting:chart-accounts')
-    paginator = Paginator(ChartOfAccounts.objects.all(), 15)
+    # paginator = Paginator(ChartOfAccounts.objects.all(), 15)
+    paginator = Paginator(account_filter, 15)
     page_number = request.GET.get('page')
     page_accounts = paginator.get_page(page_number)
     context = {
         'chartAccounts': chartAccounts,
         'form': form,
         'page_accounts': page_accounts,
+        # 'account_filter': account_filter
     }
     return render(request, 'chartOfAccounts.html', context)
 

@@ -124,3 +124,35 @@ nav .dropdown-item {
 input, select {
   height: 30px !important;
 }
+
+.form-switch {
+  height: 10px !important;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-switch input {
+  height: 70% !important;
+  width: 100% !important;
+}
+
+.search-chart {
+  border: 1px solid gray;
+  padding: 0px 10px;
+  width: 100%;
+}
+
+.search-chart:focus-visible {
+  outline: 1px solid #38206E;
+}
+
+.search-chart input {
+  width: 300px;
+  border: none !important;
+}
+
+.search-chart input:focus-visible {
+  outline: none !important;
+}

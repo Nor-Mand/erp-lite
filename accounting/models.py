@@ -11,9 +11,14 @@ class CategoryAccounts(models.Model):
 
 # Chart of Accounts
 class ChartOfAccounts(models.Model):
+    class Status(models.TextChoices):
+        SAVED = 'SV', 'Saved'
+        PUBLISHED = 'PB', 'Published'
+
     code = models.CharField(max_length=10, unique=True)
     name = models.CharField(max_length=220)
     type = models.ForeignKey(CategoryAccounts, on_delete=models.CASCADE)
+    status = models.CharField(max_length=2, choices=Status.choices, default=Status.SAVED)
 
     def __str__(self):
         return f'{self.code} {self.name}'
