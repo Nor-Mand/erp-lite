@@ -1,13 +1,13 @@
-{% extends 'home/home.html' %}
-{% block Title %}
+{% extends 'home.html' %}
+{% block title %}
     Customers
 {% endblock %}
 {% block content %}
     <div class="row py-4">
         <div class="d-flex justify-content-between">
-            <a href="{% url 'contacts:create-customers' %}" class="ms-2 btn btn-primary btn-sm">Add Customer</a>
+            <a href="{% url 'contacts:create-customers' %}" class="ms-2 btn btn-erp-primary btn-sm">Add Customer</a>
         <div>
-                <a class="btn btn-primary btn-sm " href="{% url 'contacts:export-customers' %}"><i
+                <a class="btn btn-erp-primary btn-sm " href="{% url 'contacts:export-customers' %}"><i
                         class="bi bi-save"></i><span class="ps-2">Export CSV</span></a>
             </div>
             <div class="px-4">
@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <div class="row bg-white">
+    <div class="row bg-white p-4">
         <table class="table">
             <thead class="table-light">
             <tr>
